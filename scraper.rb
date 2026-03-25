@@ -44,7 +44,7 @@ end
 
 # Extracts data from Allegro product list and product details HTML
 class AllegroParser
-  PRODUCT_CODE_PATTERN = /Kód produktu\s*:?\s*(.+?\[\*\(.+?\)\*\])/m
+  PRODUCT_CODE_PATTERN = /Kód produktu\s*:?\s*(.+?\[\*\(.+?\)\*\])/m.freeze
 
   def products(html)
     doc = Nokogiri::HTML(html)
@@ -122,7 +122,7 @@ pages_to_scrape = (ITEMS_TO_SCRAPE.to_f / ITEMS_PER_PAGE).ceil
   # Scrape product details pages
   # We have to scrape pages one by one, because of the Firecrawl API rate limits
   # https://docs.firecrawl.dev/rate-limits
-  puts "Scraping product details pages"
+  puts 'Scraping product details pages'
   products.each do |product|
     url = product[:url]
     puts url
