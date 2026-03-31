@@ -110,7 +110,7 @@ csv << CSV_COLUMNS.map(&:to_s)
 # How many pages we need to scrape to get all the items
 pages_to_scrape = (ITEMS_TO_SCRAPE.to_f / ITEMS_PER_PAGE).ceil
 
-13.upto(pages_to_scrape) do |i|
+1.upto(pages_to_scrape) do |i|
   product_list_url = SOURCE_URL % i
   puts "Scraping product list page: #{product_list_url}"
 
